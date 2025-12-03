@@ -1,12 +1,12 @@
 import tokenize_uk as tok
-import pymorphy2
+import pymorphy3
 import sqlite3
 from sqlite3 import Error
 import os
 
 
 class Word:
-    s_morph = pymorphy2.MorphAnalyzer(lang='uk')
+    s_morph = pymorphy3.MorphAnalyzer(lang='uk')
     
     def __init__(self, form, lemma, pos, freq):
         self._form = form
@@ -180,5 +180,5 @@ if __name__ == "__main__":
     print("\nКРОК 5: Перевірка змін")
     sql.select_word_by_form(target_word)
     
-        sql.close()
+    sql.close()
     print("\nЗавдання виконано успішно.")
